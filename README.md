@@ -26,6 +26,7 @@ wsl上で`python3 controller2.py /dev/ttySX` (XはCOM portの数字)
 
 ### HOLD
 任意の時間キーをホールドします
+
     Command
         HOLD key time
     Ex. HOLD LX_MAX 3
