@@ -8,7 +8,7 @@
 - [ebith/Switch-Fightstick](https://github.com/ebith/Switch-Fightstick)
 
 ## 起動
-wsl上で'''python3 controller2.py /dev/ttySX''' (XはCOM portの数字)
+wsl上で`python3 controller2.py /dev/ttySX` (XはCOM portの数字)
 
 ## 資料
 「ポケットモンスター ソード・シールド」におけるポケモンのタマゴ孵化や「かえんだま」入手作業を自動化する – 無能ブログ  
