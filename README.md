@@ -14,7 +14,7 @@ wsl上で`python3 controller2.py /dev/ttySX` (XはCOM portの数字)
 ### Ordinary command
 ただ普通にコマンドを送信します。送信時間はおよそ0.1秒です  
 
-    Comand
+    **Comand**
         just input commmand!
         Exception
             LY_MIN : U
