@@ -22,6 +22,7 @@ wsl上で`python3 controller2.py /dev/ttySX` (XはCOM portの数字)
             LX_MIM : H
             LX_MAX : K
 
+
     Ex. a
         ”A"キーを送ります。
 
@@ -30,6 +31,7 @@ wsl上で`python3 controller2.py /dev/ttySX` (XはCOM portの数字)
 
     Command
         HOLD key time
+
 
     Ex. HOLD LX_MAX 3
         上キーを３秒送信します
