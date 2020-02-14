@@ -1138,7 +1138,20 @@ class Controller:
             print("Fast TimeLeap for {} days !!".format(int(command.split()[1])))
             self.fastTimeLeap(int(command.split()[1]))
         elif command.split()[0] == "FASTTIMELEAP4S" or command.split()[0] == "FTL4S":
-            pass
+            if len(command.split()) == 3:
+                check = bool(command.split()[2])
+            else:
+                check = False
+            if not check:
+                if input("Have you completed a Rank battle? (yes or no)").upper() != "YES":
+                    print("Please do a Rank battle.")
+                    return
+            if not check:
+                if  input("Did you move into the building? (yes or no)").upper() != "YES":
+                    print("Please move into the building")
+                    return
+            print("Fast TimeLeap for {} days !!".format(int(command.split()[1])))
+            self.fastTimeLeap4S(int(command.split()[1]))
         elif command.split()[0] == "ADVANCE":
             print("Today is Day {}. Reset.".format(self.today))
             self.finish(self.today-1)
