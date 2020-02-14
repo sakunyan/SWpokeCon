@@ -384,19 +384,19 @@ class Controller:
         sleep(0.5)
 
         self.send("LY MAX", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("LX MAX", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("LX MAX", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("LX MAX", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("LX MAX", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("Button A", 0.1) # 設定
         sleep(0.1)
@@ -406,25 +406,25 @@ class Controller:
         sleep(0.1)
 
         self.send("LY MAX", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("LY MAX", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("LY MAX", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("LY MAX", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("Button A", 0.1) # 日付と時刻選択
         sleep(0.2)
 
         self.send("LY MAX", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("LY MAX", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         count = 0 # count initialize
 
@@ -433,25 +433,25 @@ class Controller:
 
 
         self.send("Button A", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("Button A", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("LY MIN", 0.1) # 日付を１日進める
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("Button A", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("Button A", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("Button A", 0.1)
-        sleep(0.1)
+        sleep(0.05)
 
         self.send("Button A", 0.1) # 日付OK
-        sleep(0.1)
+        sleep(0.05)
 
         count += 1
         bar.update(1)
@@ -461,6 +461,154 @@ class Controller:
                 break
             if count % 30 == 0:
                 self.fastOneDay() # 31日になったら１日進めて日付を１日に戻す
+
+            self.fastOneDay()
+            count += 1
+            bar.update(1)
+
+        self.send("Button HOME", 0.1)
+        sleep(1)
+        self.send("Button A", 0.1)
+        sleep(0.5)
+
+    def fastTimeLeap4S(self, n):
+        bar = tqdm(total=n)
+
+        self.send("Button B", 0.1)
+        self.send("Button B", 0.1)
+        self.send("Button B", 0.1) # Initialize
+
+        self.send("Button HOME", 0.1) # Home
+        sleep(0.5)
+
+        self.send("LY MAX", 0.1)
+        sleep(0.05)
+
+        self.send("LX MAX", 0.1)
+        sleep(0.05)
+
+        self.send("LX MAX", 0.1)
+        sleep(0.05)
+
+        self.send("LX MAX", 0.1)
+        sleep(0.05)
+
+        self.send("LX MAX", 0.1)
+        sleep(0.05)
+
+        self.send("Button A", 0.1) # 設定
+        sleep(0.1)
+
+        self.send("LY MAX", 2.5)
+        self.send("Button A", 0.1) # 本体設定
+        sleep(0.1)
+
+        self.send("LY MAX", 0.1)
+        sleep(0.05)
+
+        self.send("LY MAX", 0.1)
+        sleep(0.05)
+
+        self.send("LY MAX", 0.1)
+        sleep(0.05)
+
+        self.send("LY MAX", 0.1)
+        sleep(0.05)
+
+        self.send("Button A", 0.1) # 日付と時刻選択
+        sleep(0.2)
+
+        self.send("LY MAX", 0.1)
+        sleep(0.05)
+
+        self.send("LY MAX", 0.1)
+        sleep(0.05)
+
+        count = 0 # count initialize
+
+        self.send("Button A", 0.1) # 現在の日付と時刻
+        sleep(0.1)
+
+
+        self.send("Button A", 0.1)
+        sleep(0.05)
+
+        self.send("Button A", 0.1)
+        sleep(0.05)
+
+        self.send("LY MIN", 0.1) # 日付を１日進める
+        sleep(0.05)
+
+        self.send("Button A", 0.1)
+        sleep(0.05)
+
+        self.send("Button A", 0.1)
+        sleep(0.05)
+
+        self.send("Button A", 0.1)
+        sleep(0.05)
+
+        self.send("Button A", 0.1) # 日付OK
+        sleep(0.05)
+
+        count += 1
+        bar.update(1)
+
+        while True:
+            if count == n:
+                break
+            if count % 30 == 0:
+                self.fastOneDay() # 31日になったら１日進めて日付を１日に戻す
+            if count % 8000 == 0:
+                self.send("Button HOME", 0.1)
+                sleep(1)
+                self.send("Button A", 0.1)
+                sleep(1)
+                self.send("Button HOME", 0.1) # Home
+                sleep(0.5)
+
+                self.send("LY MAX", 0.1)
+                sleep(0.05)
+
+                self.send("LX MAX", 0.1)
+                sleep(0.05)
+
+                self.send("LX MAX", 0.1)
+                sleep(0.05)
+
+                self.send("LX MAX", 0.1)
+                sleep(0.05)
+
+                self.send("LX MAX", 0.1)
+                sleep(0.05)
+
+                self.send("Button A", 0.1) # 設定
+                sleep(0.1)
+
+                self.send("LY MAX", 2.5)
+                self.send("Button A", 0.1) # 本体設定
+                sleep(0.1)
+
+                self.send("LY MAX", 0.1)
+                sleep(0.05)
+
+                self.send("LY MAX", 0.1)
+                sleep(0.05)
+
+                self.send("LY MAX", 0.1)
+                sleep(0.05)
+
+                self.send("LY MAX", 0.1)
+                sleep(0.05)
+
+                self.send("Button A", 0.1) # 日付と時刻選択
+                sleep(0.2)
+
+                self.send("LY MAX", 0.1)
+                sleep(0.05)
+
+                self.send("LY MAX", 0.1)
+                sleep(0.05)
 
             self.fastOneDay()
             count += 1
@@ -669,6 +817,34 @@ class Controller:
         sleep(0.5)
 
         pass
+
+    def nojob(self):
+        self. send("Button B", 0.1)
+        sleep(1)
+
+        self. send("Button B", 0.1)
+        sleep(1)
+
+        self.fastTimeLeap(1)
+        sleep(2)
+
+        self.send("Button A", 0.1)  # ロトミに話しかける
+        sleep(2)
+
+        self.send("Button A", 0.1)
+        sleep(2)
+
+        self.send("LY MAX", 0.1)
+        sleep(0.1)
+
+        self.send("LY MAX", 0.1)
+        sleep(0.1)
+
+        self.send("Button A", 0.1)  # ポケジョブ選択
+        sleep(4)
+
+        self.send("Button A", 0.1)  # 新しいお手伝い
+        sleep(0.5)
 
     def effort(self, V, n):
         vposition = {"S":1, "D": 2, "C":3, "B":4, "A":5, "H":6}
@@ -961,6 +1137,8 @@ class Controller:
                     return
             print("Fast TimeLeap for {} days !!".format(int(command.split()[1])))
             self.fastTimeLeap(int(command.split()[1]))
+        elif command.split()[0] == "FASTTIMELEAP4S" or command.split()[0] == "FTL4S":
+            pass
         elif command.split()[0] == "ADVANCE":
             print("Today is Day {}. Reset.".format(self.today))
             self.finish(self.today-1)
@@ -972,6 +1150,8 @@ class Controller:
             print("Today is Day {}. ".format(self.today))
         elif command.split()[0] == "POKEJOB":
             self.pokejob()
+        elif command.split()[0] == "NOJOB":
+            self.nojob()
         elif command.split()[0] == "EFFORT":
             self.effort(command.split()[1], int(command.split()[2]))
         elif command.split()[0] == "WAIT":
@@ -995,7 +1175,7 @@ class Controller:
                 print(f.read())
         elif command.split()[0] == "HOLD":
             c = command.split()[1]
-            t = int(command.split()[2])
+            t = float(command.split()[2])
             if c == "UP" or c == "U":
                 self.send("LY MIN", t)
             elif c == "DOWN" or c == "J":
@@ -1031,6 +1211,7 @@ def main():
     try:
         c.send("Button B", 0.1)
         memory = None
+        memory2 = None
         prevCommand = None
 
         while True:
@@ -1069,9 +1250,14 @@ def main():
                     print("Export commands!")
             elif command == "MEMORY":
                 memory = input("Memory Command: ")
+            elif command == "MEMORY2":
+                memory2 = input("Memory2 Command: ")
             elif command == "M":
                 print("Memory Command is \"{}\"".format(memory))
                 c.action(memory)
+            elif command == "N":
+                print("Memory2 Command is \"{}\"".format(memory2))
+                c.action(memory2)
             elif command == "S":
                 c.action(prevCommand)
             else:

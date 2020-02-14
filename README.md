@@ -21,8 +21,6 @@ wsl上で`python3 controller2.py /dev/ttySX` (XはCOM portの数字)
             LY_MAX : J
             LX_MIM : H
             LX_MAX : K
-
-
     Ex. a
         ”A"キーを送ります。
 
@@ -31,8 +29,6 @@ wsl上で`python3 controller2.py /dev/ttySX` (XはCOM portの数字)
 
     Command
         HOLD key time
-
-
     Ex. HOLD LX_MAX 3
         上キーを３秒送信します
 
@@ -42,7 +38,6 @@ wsl上で`python3 controller2.py /dev/ttySX` (XはCOM portの数字)
     Command
         RECORD
         STOP
-
     Ex. RECORD
         a
         b
@@ -50,6 +45,33 @@ wsl上で`python3 controller2.py /dev/ttySX` (XはCOM portの数字)
         STOP
         test.txt
         text.txtファイルにa, b, aのコマンドが記録されます
+
+### LEAP
+旧時渡りすることができます。巣穴にねがいのかたまりを投げ込んだ状態かつ、巣穴からワットを回収していない状態かつ、Aボタンで回収できる位置に立った状態でソフトを落とし、ポケモンにカーソルを合わせてからこのコマンドを実行します。
+
+    Command
+        LEAP day
+    Ex. LEAP 3
+        ３日時渡りします
+
+### RESET
+ゲームを終了し、日付を元に戻します。
+
+    Command
+        RESET
+    Ex. RESET
+        日付を１日に戻して、ゲームを終了します。
+
+### AGAIN
+ゲームを終了した上で、任意の回数時渡りをします
+
+    Command
+        AGAIN 3
+    Ex. AGAIN 3
+        日付を１日に戻してゲームを終了し、新たにゲームを起動し３回時渡りをします。
+
+### FASTTIMELEAP
+
 
 
 ## 資料
