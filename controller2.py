@@ -471,7 +471,7 @@ class Controller:
         self.send("Button A", 0.1)
         sleep(0.5)
 
-    def fastTimeLeap4S(self, n):
+    def fastTimeLeap4S(self, n, ret=8000):
         bar = tqdm(total=n)
 
         self.send("Button B", 0.1)
@@ -559,11 +559,11 @@ class Controller:
                 break
             if count % 30 == 0:
                 self.fastOneDay() # 31日になったら１日進めて日付を１日に戻す
-            if count % 8000 == 0:
+            if count % ret == 0:
                 self.send("Button HOME", 0.1)
                 sleep(1)
                 self.send("Button A", 0.1)
-                sleep(1)
+                sleep(2)
                 self.send("Button HOME", 0.1) # Home
                 sleep(0.5)
 
@@ -608,6 +608,27 @@ class Controller:
                 sleep(0.05)
 
                 self.send("LY MAX", 0.1)
+                sleep(0.05)
+
+                self.send("Button A", 0.1) # 現在の日付と時刻
+                sleep(0.1)
+
+                self.send("Button A", 0.1)
+                sleep(0.05)
+
+                self.send("Button A", 0.1)
+                sleep(0.05)
+
+                self.send("Button A", 0.1)
+                sleep(0.05)
+
+                self.send("Button A", 0.1)
+                sleep(0.05)
+
+                self.send("Button A", 0.1)
+                sleep(0.05)
+
+                self.send("Button A", 0.1) # 日付OK
                 sleep(0.05)
 
             self.fastOneDay()
@@ -1151,7 +1172,7 @@ class Controller:
                     print("Please move into the building")
                     return
             print("Fast TimeLeap for {} days !!".format(int(command.split()[1])))
-            self.fastTimeLeap4S(int(command.split()[1]))
+            self.fastTimeLeap4S(int(command.split()[1]), ret=8000)
         elif command.split()[0] == "ADVANCE":
             print("Today is Day {}. Reset.".format(self.today))
             self.finish(self.today-1)
