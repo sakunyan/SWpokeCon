@@ -6,6 +6,7 @@
 - USBシリアル変換アダプタ
 - microUSBケーブル
 - [ebith/Switch-Fightstick](https://github.com/ebith/Switch-Fightstick)
+- pyserial
 
 ## 起動
 wsl上で`python3 controller2.py /dev/ttySX` (XはCOM portの数字)
